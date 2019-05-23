@@ -43,7 +43,7 @@ I've named the binary asy68k because the "E" in EASy68k stands for "Editor" and 
 
 If you're not familiar with EASy68k, you should visit http://www.easy68k.com/ and follow their tutorials. Also the CHM help file included with the binary distribution is very helpful. If you're on Linux use one of the many CHM viewers to open it.
 There's also a 68K quick reference PDF link in the CHM that's useful for beginners. This README is **not** going to address any of those topics, nor the syntax, it is intended for folks who already know how to use EASy68k and just want a command line assembler with the same macro syntax and outputs. But note that on *nix systems the line endings will be just LF's so no need to invoke dos2unix anymore.
-~~~~
+
 
 ### Porting Meta Discussion: ###
 
