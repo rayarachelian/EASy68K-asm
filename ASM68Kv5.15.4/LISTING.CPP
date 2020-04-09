@@ -196,9 +196,9 @@ int listLoc()
   if (!listPtr) listPtr=listData; // prevent crash RA
 
   if (offsetMode || showEqual)
-    sprintf(listData, "%08lX= ", (long) loc); //RA warning: format ‘%lX’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘int’
+    sprintf(listData, "%08X= ", loc); //RA warning: format ‘%lX’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘int’
   else
-    sprintf(listData, "%08lX  ", (long) loc); // RA
+    sprintf(listData, "%08X  ", loc); // RA
   listPtr = listData + 10;
 
   return NORMAL;
@@ -257,7 +257,7 @@ int listObj(int data, int size)
     case WORD_SIZE: sprintf(listPtr, "%04X ", (unsigned int)(data & 0xFFFF)); // RA
       listPtr += 5;
       break;
-    case LONG_SIZE: sprintf(listPtr, "%08lX ", (long)(data)); // RA
+    case LONG_SIZE: sprintf(listPtr, "%08X ", data); // RA
       listPtr += 9;
       break;
     default: sprintf(buffer,"LISTOBJ: INVALID SIZE CODE!\n");
@@ -296,7 +296,7 @@ int finishList()
 
     // write starting address to first line of file
     rewind(listFile);                     // rewind to start of file
-    fprintf(listFile, "%08lX", (long) startAddress);
+    fprintf(listFile, "%08X", startAddress);
 
     fclose(listFile);
     return NORMAL;

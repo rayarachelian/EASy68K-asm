@@ -277,7 +277,7 @@ int equ(int size, char *label, char *op, int *errorPtr)
       }	else {
 	define(label, value, pass2, true, errorPtr);
 	if (pass2 && listFlag && *errorPtr < MINOR) {
-	  sprintf(listPtr, "=%08lX ", (long) value); // RA suppress warning on modern 64 bit machines
+	  sprintf(listPtr, "=%08X ", value); // RA suppress warning on modern 64 bit machines
 	  listPtr += 10;
 	}
       }
@@ -320,7 +320,7 @@ int set(int size, char *label, char *op, int *errorPtr)
 	symbol = define(label, value, pass2, false, &error);   // ck 4-18-03
 	symbol->flags |= REDEFINABLE;
 	if (pass2 & listFlag) {
-	  sprintf(listPtr, "=%08lX ", (long)value); // supress size warning on 64 bit machines
+	  sprintf(listPtr, "=%08X ", value); // supress size warning on 64 bit machines
 	  listPtr += 10;
 	}
       }

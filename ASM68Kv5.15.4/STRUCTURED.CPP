@@ -13,10 +13,9 @@
 #include <string.h>
 #include "asm.h"
 
+#include <algorithm>
 #include <stack>  // RA removed .h
 #include <vector> // RA removed .h
-#include <bits/stdc++.h> // RA added
-
 
 extern char line[256];		// Source line
 extern bool listFlag;

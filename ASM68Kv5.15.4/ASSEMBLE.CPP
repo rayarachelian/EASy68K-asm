@@ -173,6 +173,19 @@ string ChangeFileExt(string in, const string& newExt) {
    return s;
 }
 #endif
+
+//--- added by github.com/dmo2118
+void REMOVECR(char *line)
+{
+  size_t len = strnlen(line, 256);
+  if (len >= 2) {
+    char *end = line + len;
+    if (end[-2] == '\r' && end[-1] == '\n') {
+      end[-2] = '\n';
+      end[-1] = 0;
+    }
+  }
+}
 //------------------------------------------------------------
 
 //------------------------------------------------------------
@@ -344,7 +357,8 @@ int processFile()
       skipCond = false;             // true conditionally skips lines in code
       while(!endFlag && fgets(line, 256, inFile)) {
 
-        // RA - not sure I still need this; handle MSDOS/Win line endings by convering CR's to spaces - hacky, I know
+        // RA - not sure I still need this.
+        // Handle MSDOS/Win line endings by chomping the CR in the CRLF.
         REMOVECR(line); 
 
         error = OK;
