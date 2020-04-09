@@ -252,7 +252,7 @@ int writeObj()
       str += *sRec++;
       str += *sRec++;
 //      checksum += (char) (StrToInt(str) & 0xFF); //RA
-      checksum += (char) (atoi(str.c_str()) & 0xFF); //RA
+      checksum += (char) (strtol(str.c_str(), NULL, 0) & 0xFF); //RA
     }
     sprintf(sRec, "%02X\n", (~checksum & 0xFF)); // put checksum in sRecord
 
