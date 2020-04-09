@@ -191,7 +191,7 @@ int outputObj(int newAddr, int data, int size)
 	sprintf(sRecord, "S2  %06X", (int) newAddr); //RA
 	obyteCount = 4;
       }	else {
-	sprintf(sRecord, "S3  %08lX", (long) newAddr); //RA warning: format ‘%lX’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘int’
+	sprintf(sRecord, "S3  %08X", newAddr); //RA warning: format ‘%lX’ expects argument of type ‘long unsigned int’, but argument 3 has type ‘int’
 	obyteCount = 5;
       }
       objPtr = sRecord + 4 + (obyteCount-1)*2;
@@ -212,7 +212,7 @@ int outputObj(int newAddr, int data, int size)
 	obyteCount += 2;
 	break;
       case LONG_SIZE :
-        sprintf(objPtr, "%08lX", (long) data); // RA
+        sprintf(objPtr, "%08X", data); // RA
 	obyteCount += 4;
 	break;
       default :
