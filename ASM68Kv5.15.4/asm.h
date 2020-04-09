@@ -40,7 +40,7 @@ using std::string;
 #define stricmp   strcasecmp
 #define strcmpi   strcasecmp
 #define strnicmpi strncasecmp
-#define REMOVECR(line)  { for (int i=0; line[i] && i<256; i++) if (line[i]==13) line[i]=' '; }
+void REMOVECR(char *line);
 //------------------
 
 /* Define a couple of useful tests */
